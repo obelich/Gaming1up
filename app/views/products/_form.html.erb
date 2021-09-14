@@ -11,44 +11,45 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-floating mb-3">
+    <%= form.text_field :name, class: 'form-control' %>
     <%= form.label :name %>
-    <%= form.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="form-floating mb-3">
+    <%= form.text_area :description, class: 'form-control' %>
     <%= form.label :description %>
-    <%= form.text_area :description %>
   </div>
 
-  <div class="field">
+  <div class="form-floating mb-3">
+    <%= form.text_field :stock, class: 'form-control' %>
     <%= form.label :stock %>
-    <%= form.text_field :stock %>
   </div>
 
-  <div class="field">
+  <div class="form-floating mb-3">
+    <%= form.text_field :price, class: 'form-control' %>
     <%= form.label :price %>
-    <%= form.text_field :price %>
   </div>
 
-  <div class="field">
+  <div class="form-floating mb-3">
+    <%= form.text_field :code, class: 'form-control' %>
     <%= form.label :code %>
-    <%= form.text_field :code %>
   </div>
 
-  <div class="field">
+  <div class="mb-3">
     <%= form.label :category_id %>
-    <%= form.text_field :category_id %>
+    <%= form.select :category_id, Category.all.map { |t| [t.name, t.id]}, {}, class: "form-control" %>
+
   </div>
 
-  <div class="field">
+  <div class="mb-3">
+    <%= form.file_field :product_front, class: 'form-control' %>
     <%= form.label :product_front %>
-    <%= form.file_field :product_front %>
   </div>
 
-  <div class="field">
+  <div class=" mb-3">
+    <%= form.file_field :product_back, class: 'form-control' %>
     <%= form.label :product_back %>
-    <%= form.file_field :product_back %>
   </div>
 
   <div class="actions">
