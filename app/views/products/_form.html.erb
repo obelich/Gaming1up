@@ -41,6 +41,16 @@
     <%= form.text_field :category_id %>
   </div>
 
+  <div class="field">
+    <%= form.label :product_front %>
+    <%= form.file_field :product_front %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_back %>
+    <%= form.file_field :product_back %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

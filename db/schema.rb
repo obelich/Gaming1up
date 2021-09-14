@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2021_09_14_030004) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "stock"
-    t.float "price"
+    t.integer "stock", default: 1
+    t.float "price", default: 0.0
     t.string "code"
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
