@@ -12,28 +12,28 @@
   <% end %>
 
   <div class="form-floating mb-3">
-    <%= form.text_field :name, class: 'form-control' %>
-    <%= form.label :name %>
-  </div>
-
-  <div class="form-floating mb-3">
-    <%= form.text_area :description, class: 'form-control' %>
-    <%= form.label :description %>
+    <%= form.text_field  :name, class: 'form-control' %>
+    <%= form.label :name, "Nombre" %>
   </div>
 
   <div class="form-floating mb-3">
     <%= form.text_field :stock, class: 'form-control' %>
-    <%= form.label :stock %>
+    <%= form.label :stock, 'Disponible' %>
+  </div>
+
+  <div class="form-floating mb-3">
+    <%= form.text_field :price_provider, class: 'form-control' %>
+    <%= form.label :price_provider, 'Costo del proveedor' %>
   </div>
 
   <div class="form-floating mb-3">
     <%= form.text_field :price, class: 'form-control' %>
-    <%= form.label :price %>
+    <%= form.label :price, 'Precio Venta' %>
   </div>
 
   <div class="form-floating mb-3">
     <%= form.text_field :code, class: 'form-control' %>
-    <%= form.label :code %>
+    <%= form.label :code, 'Código' %>
   </div>
 
   <div class="mb-3">
@@ -45,11 +45,22 @@
   <div class="mb-3">
     <%= form.file_field :product_front, class: 'form-control' %>
     <%= form.label :product_front %>
+    <% if @product.product_front %>
+      <%= image_tag product.product_front, size: '80x80' %>
+    <% end %>
   </div>
 
   <div class=" mb-3">
     <%= form.file_field :product_back, class: 'form-control' %>
     <%= form.label :product_back %>
+    <% if @product.product_back %>
+      <%= image_tag product.product_back, size: '80x80' %>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.text_area :description, class: 'form-control', rows: 6, cols: 6 %>
+    <%= form.label :description, "Descripción" %>
   </div>
 
   <div class="actions">
