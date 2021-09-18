@@ -45,15 +45,15 @@
   <div class="mb-3">
     <%= form.file_field :product_front, class: 'form-control' %>
     <%= form.label :product_front %>
-    <% unless @product.product_front %>
+    <% if !@product.product_front.blank? %>
       <%= image_tag product.product_front, size: '80x80' %>
     <% end %>
   </div>
 
   <div class=" mb-3">
-    <%= form.file_field :product_back, class: 'form-control' %>
+    <%= form.text_area  :product_back, class: 'form-control tinymce' %>
     <%= form.label :product_back %>
-    <% unless @product.product_back %>
+    <% if !@product.product_back.blank? %>
       <%= image_tag product.product_back, size: '80x80' %>
     <% end %>
   </div>

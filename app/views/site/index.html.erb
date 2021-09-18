@@ -20,15 +20,17 @@
             <% end %>
             <div class="card-body">
               <h5 class="card-title"><%= product.name %></h5>
-              <p class="card-text"><%= product.description %></p>
+              <span class="font-monospace">$ <b><%= product.price %> </b> MXN</span>
+              <p class="card-text"><%= product.description.truncate(150) %></p>
               <%= link_to "Ver detalles", product_detail_path(id: product), class: 'btn btn-primary' %>
               <a href="#" class="btn btn-primary">Comprar</a>
             </div>
           </div>
         </div>
 
-      <% end %>
 
+
+      <% end %>
 
     </div>
 
