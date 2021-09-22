@@ -20,5 +20,6 @@ module Gaming1up
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    I18n.default_locale = :es
   end
 end

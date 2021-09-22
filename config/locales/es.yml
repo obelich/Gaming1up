@@ -29,12 +29,12 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
+es:
   hello: "Hello world"
   helpers:
     submit:
-      create: "Create a %{model}"
-      update: "Confirm changes to %{model}"
+      create: "Crear %{model}"
+      update: "Confirmar actualización %{model}"
   activerecord:
     models:
       product: "Producto"

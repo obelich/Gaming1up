@@ -51,7 +51,7 @@
   </div>
 
   <div class=" mb-3">
-    <%= form.text_area  :product_back, class: 'form-control tinymce' %>
+    <%= form.file_field  :product_back, class: 'form-control tinymce' %>
     <%= form.label :product_back %>
     <% if !@product.product_back.blank? %>
       <%= image_tag product.product_back, size: '80x80' %>
