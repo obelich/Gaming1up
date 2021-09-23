@@ -6,5 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Role.create({name: "client"})
+Role.create({name: "administrator"})
 
 categories = Category.create([{id: 1, name: 'Nintendo Switch'}, {id: 2, name: 'Xbox'}, {id: 3, name: 'PlayStation'}])
+admin = User.create({email: 'admin@gaming1up.com', password: "test@gaming", password_confirmation: "test@gaming"})
+cliente = User.create({email: 'client@gaming1up.com', password: "test@gaming", password_confirmation: "test@gaming"})
+admin.add_role :administrator
+cliente.add_role :client

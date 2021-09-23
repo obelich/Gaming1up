@@ -6,8 +6,11 @@
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
+          <%= link_to 'Todas', site_index_path %>
+        </li>
+        <li class="list-group-item">
           <%= link_to 'Nintendo Switch', site_index_path(q: {category_id_eq: 1}) %>
-          </li>
+        </li>
         <li class="list-group-item">
           <%= link_to 'Xbox', site_index_path(q: {category_id_eq: 2}) %>
         </li>
