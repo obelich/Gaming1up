@@ -2,12 +2,18 @@
   <div class="col-2">
     <div class="card" style="width: 18rem;">
       <div class="card-header">
-        Categorias
+        Consolas
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Nintendo Switch</li>
-        <li class="list-group-item">Xbox</li>
-        <li class="list-group-item">PlayStation</li>
+        <li class="list-group-item">
+          <%= link_to 'Nintendo Switch', site_index_path(q: {category_id_eq: 1}) %>
+          </li>
+        <li class="list-group-item">
+          <%= link_to 'Xbox', site_index_path(q: {category_id_eq: 2}) %>
+        </li>
+        <li class="list-group-item">
+          <%= link_to 'PlayStation', site_index_path(q: {category_id_eq: 3}) %>
+        </li>
       </ul>
     </div>
   </div>

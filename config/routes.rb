@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :products
   resources :categories
   get 'site/index'
+  post 'site/index'
   get 'site/contact'
   get 'site/product/:id', to: 'site#product', as: 'product_detail'
 end
