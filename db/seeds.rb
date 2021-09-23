@@ -10,7 +10,9 @@ Role.create({name: "client"})
 Role.create({name: "administrator"})
 
 categories = Category.create([{id: 1, name: 'Nintendo Switch'}, {id: 2, name: 'Xbox'}, {id: 3, name: 'PlayStation'}])
+User.create({email: 'client@gaming1up.com', password: "test@gaming", password_confirmation: "test@gaming"})
+
 admin = User.create({email: 'admin@gaming1up.com', password: "test@gaming", password_confirmation: "test@gaming"})
-cliente = User.create({email: 'client@gaming1up.com', password: "test@gaming", password_confirmation: "test@gaming"})
+admin.remove_role :client
 admin.add_role :administrator
-cliente.add_role :client
+
