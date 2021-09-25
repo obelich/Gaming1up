@@ -1,107 +1,64 @@
-<style>
-
-  .hedding {
-    font-size: 20px;
-    color: #ab8181;
-  }
-
-  .main-section {
-    position: absolute;
-    left: 50%;
-    right: 50%;
-    transform: translate(-50%, 5%);
-  }
-
-  .left-side-product-box img {
-    width: 100%;
-  }
-
-  .left-side-product-box .sub-img img {
-    margin-top: 5px;
-    width: 83px;
-    height: 100px;
-  }
-
-  .right-side-pro-detail span {
-    font-size: 15px;
-  }
-
-  .right-side-pro-detail p {
-    font-size: 25px;
-    color: #a1a1a1;
-  }
-
-  .right-side-pro-detail .price-pro {
-    color: #E45641;
-  }
-
-  .right-side-pro-detail .tag-section {
-    font-size: 18px;
-    color: #5D4C46;
-  }
-
-  .pro-box-section .pro-box img {
-    width: 100%;
-    height: 200px;
-  }
-
-  @media (min-width:360px) and (max-width:640px) {
-    .pro-box-section .pro-box img {
-      height: auto;
-    }
-  }
-</style>
-
-<div class="container">
-  <div class="col-lg-8 border p-3 main-section bg-white">
-    <div class="row m-0">
-      <div class="col-lg-4 left-side-product-box pb-3">
-        <%= image_tag @product.product_front, class: 'border p-3'%>
-        <span class="sub-img">
-          <%= image_tag @product.product_front, class: 'border p-2'%>
-          <%= image_tag @product.product_back, class: 'border p-2'%>
-        </span>
-      </div>
-      <div class="col-lg-8">
-        <div class="right-side-pro-detail border p-3 m-0">
-          <div class="row">
-            <div class="col-lg-12">
-              <span>Producto</span>
-              <p class="m-0 p-0"><%= @product.name %></p>
-            </div>
-            <div class="col-lg-12">
-              <p class="m-0 p-0 price-pro">$ <%= @product.price %> MXN</p>
-              <hr class="p-0 m-0">
-            </div>
-            <div class="col-lg-12 pt-2">
-              <h5>Detalles del producto</h5>
-              <span>
-                <%= @product.description %>
-              </span>
-              <hr class="m-0 pt-2 mt-2">
-            </div>
-<!--            <div class="col-lg-12">-->
-<!--              <p class="tag-section"><strong>Tag : </strong><a href="">Woman</a><a href="">,Man</a></p>-->
-<!--            </div>-->
-            <div class="col-lg-12">
-              <h6>Cantidad :</h6>
-              <input type="number" class="form-control text-center w-100" value="1">
-            </div>
-            <div class="col-lg-12 mt-3">
-              <div class="row">
-                <div class="col-lg-6 pb-2">
-                  <a href="#" class="btn btn-danger w-100">Add To Cart</a>
-                </div>
-                <div class="col-lg-6">
-                  <a href="#" class="btn btn-success w-100">Shop Now</a>
-                </div>
-              </div>
-            </div>
+<div class="container mt-5 mb-5">
+  <div class="card">
+    <div class="row g-0">
+      <div class="col-md-6 border-end">
+        <div class="d-flex flex-column justify-content-center">
+          <div class="main_image">
+            <%= image_tag @product.product_front, id: 'main_product_image', width: '450'%>
           </div>
+          <div class="thumbnail_images">
+            <ul id="thumbnail">
+              <li>
+                <%= image_tag @product.product_front, onclick: 'changeImage(this)', width: '70'  %>
+              </li>
+              <li>
+                <%= image_tag @product.product_back, onclick: 'changeImage(this)', width: '70'  %>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="p-3 right-side">
+          <div class="d-flex justify-content-between align-items-center">
+            <h3><%= @product.name %></h3>
+<!--            <span class="heart"><i class="far fa-address-book"></i></span>-->
+          </div>
+          <div class="mt-2 pr-3 content">
+            <p>
+              <%= @product.description %>
+            </p>
+          </div>
+          <h3>$<%= @product.price %> MXN</h3>
+<!--          <div class="ratings d-flex flex-row align-items-center">-->
+<!--            <div class="d-flex flex-row"> -->
+<!--              <i class='bx bxs-star'></i> -->
+<!--              <i class='bx bxs-star'></i> -->
+<!--              <i class='bx bxs-star'></i> -->
+<!--              <i class='bx bxs-star'></i> -->
+<!--              <i class='bx bx-star'></i> </div> -->
+<!--            <span>441 reviews</span>-->
+<!--          </div>-->
+
+<!--          <div class="buttons d-flex flex-row mt-5 gap-3">-->
+<!--            <button class="btn btn-outline-dark">Buy Now</button>-->
+<!--            <button class="btn btn-dark">Add to Basket</button>-->
+<!--          </div>-->
+
         </div>
       </div>
     </div>
 
   </div>
-</div>
+  <hr >
+  <%= link_to '<i class="fas fa-arrow-circle-left"></i> Listado de productos'.html_safe, root_path, class: 'btn btn-outline-dark' %>
 
+</div>
+<script type="text/javascript" charset="utf-8">
+  function changeImage(element) {
+
+    let main_prodcut_image = document.getElementById('main_product_image');
+    main_prodcut_image.src = element.src;
+  }
+</script>

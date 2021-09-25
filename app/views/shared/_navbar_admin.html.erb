@@ -1,30 +1,56 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="/">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to "Productos", products_path, class: 'nav-link' %>
+          <%= link_to "Inicio", root_path, class: 'nav-link' %>
         </li>
-        <li class="nav-item dropdown">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Productos", products_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Catalogos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <%= link_to "Categorias", categories_path, class: 'dropdown-item' %>
+              </li>
+            </ul>
+          </li>
+          <% end %>
+
+
+        <li class="nav-item dropdown ">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Catalogos
+            Cuenta
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
             <li>
-              <%= link_to "Categorias", categories_path, class: 'dropdown-item' %>
+              <%= link_to "Iniciar Sesión", new_user_session_path, class: 'dropdown-item' if !user_signed_in? %>
             </li>
             <li>
-              <a class="dropdown-item" href="#">Another action</a>
+              <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: 'dropdown-item' if user_signed_in? %>
             </li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+
           </ul>
         </li>
+
       </ul>
+      <% if @q %>
+        <%= search_form_for @q, url: root_path, html: { class: 'd-flex' } do |f| %>
+          <%= f.search_field :name_or_description_cont, class: 'form-control me-2' %>
+
+  <!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+        <% end %>
+      <% end %>
+
     </div>
   </div>
 </nav>
