@@ -9,6 +9,15 @@
         <li class="nav-item">
           <%= link_to "Inicio", root_path, class: 'nav-link' %>
         </li>
+        <li class="nav-item">
+          <%= link_to "Nintendo Switch", site_index_path(q: {category_id_eq: 1}), class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "PlayStation", site_index_path(q: {category_id_eq: 3}), class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Xbox", site_index_path(q: {category_id_eq: 2}), class: 'nav-link' %>
+        </li>
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "Productos", products_path, class: 'nav-link' %>
