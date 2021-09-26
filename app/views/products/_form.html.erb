@@ -43,7 +43,7 @@
   </div>
 
   <div class="mb-3">
-    <%= form.file_field :product_front, class: 'form-control' %>
+    <%= form.file_field :product_front, class: 'form-control', direct_upload: true %>
     <%= form.label :product_front %>
     <% if !@product.product_front.blank? %>
       <%= image_tag product.product_front, size: '80x80' %>
@@ -51,7 +51,7 @@
   </div>
 
   <div class=" mb-3">
-    <%= form.file_field  :product_back, class: 'form-control tinymce' %>
+    <%= form.file_field  :product_back, class: 'form-control tinymce', direct_upload: true %>
     <%= form.label :product_back %>
     <% if !@product.product_back.blank? %>
       <%= image_tag product.product_back, size: '80x80' %>
